@@ -1,0 +1,50 @@
+db.student.insertOne({‘rollNo’:1,’name’:’Rajesh’})
+
+db.student.insertMany([
+{‘rollNo’:2,’name’:Ram},
+{‘rollNo’:3,’name’:Shyam}
+])
+
+db.student.updateOne({'name':'rajesh'},{$set:{'name':'Rajesh'}})
+
+db.student.deleteOne({'name':'rajesh'})
+
+db.student.find({},{name:1,_id:0})
+
+
+db.student.find( { }, { classname: 0 } )
+
+db.student.find( { liked_color: ["r", "g"] } )
+
+
+db.student.find( { tags: { $all: ["r", "g"] } } )
+
+
+db.football.find( { "goals": { $size: 3 } } )
+
+
+db.students.find({"student.name":{"$exists":true}})
+
+
+
+db.students.find({ "student.name": {  $ne: null } })
+
+
+
+db.emp.find({name:{$regex:”Vishwa”}})
+db.emp.find({name:{$regex:/Vishwa/}})
+
+db.emp.find({name:{$regex:/Vishwa/}},$options:"$i")
+
+
+
+db.emp.find({holidays:{$regex:"sun"}})
+
+db.emp.find({name:{$regex: /^Vi/ }})
+db.emp.find({name:{$regex: /wa$/ }})
+db.emp.find({
+    $and:[
+        {name: /^Vi/ },
+        {name: /wa$/ }
+    ]
+})

@@ -1,0 +1,19 @@
+Configuration config = HBaseConfiguration.create();
+HBaseAdmin hbAdmin = new HBaseAdmin(conf); 
+HTableDescriptor tableDesc= new HTableDescriptor(TableName.valueOf("student"));
+
+tableDesc.addFamily(new HColumnDescriptor("present"));
+tableDesc.addFamily(new HColumnDescriptor("old"));
+
+hbAdmin .createTable(tableDesc);
+
+ 
+HBaseAdmin hbAdmin = new HBaseAdmin(conf); 
+String tableName = "Student";
+hbAdmin .disableTable(tableName); 
+hbAdmin .modifyColumn(tableName, columFamily); 
+hbAdmin .enableTable(tableName);
+
+
+
+alter 'tablename', {NAME => 'ColFamily', VERSIONS => 50}

@@ -1,0 +1,41 @@
+
+MATCH (n)  
+DETACH DELETE n
+
+
+
+MATCH (n { field: value })-[r:KNOWS]->()  
+DELETE r   
+
+
+MATCH (n:Entity { field: value })  
+DELETE n  
+
+MATCH (n {field: value})
+SET (condition).property = value
+RETURN n
+
+
+CREATE (Ricardo:coder{name: "Ricardo Pocha", YOB: 1985, POB: "Mexico"}) 
+CREATE (Mex:Country {name: "Mexico"}) 
+CREATE (Ricardo)-[r:CODER_OF]->(MEX)
+
+
+MATCH collection = (starting)-[*]->(ending) 
+WHERE starting.node = value1 AND ending.node = value2
+FOREACH (n IN nodes(collection)| SET n.marked = TRUE)
+
+
+MATCH (label)  
+WHERE label.field = value
+RETURN label
+
+
+MATCH (n { field: value })-->(x) 
+RETURN n, count(*)
+
+
+
+MATCH (root {field1: value}) 
+CREATE UNIQUE (root)-[:relationship]-(someone) 
+RETURN someone

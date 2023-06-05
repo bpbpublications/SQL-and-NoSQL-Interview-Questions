@@ -1,0 +1,59 @@
+{
+   "query":{
+      "match" : {
+         "field":"word"
+      }
+   }
+}
+
+
+{
+   "query":{
+      "multi_match" : {
+         "query": "word",
+         "fields": [ "field1", "field2" ]
+      }
+   }
+}
+
+
+{
+   "query":{
+      "range":{
+         "field":{
+            "gte":value
+         }
+      }
+   }
+}
+
+
+{
+   "query": {
+      "bool" : {
+         "must" : {
+            "term" : { "field1" : "value" }
+         },
+         "filter": {
+            "term" : { "field2" : "value2" }
+         },
+         "minimum_should_match" : 1
+      }
+   }
+}
+
+
+
+PUT_ilm/policy/policy_id   for inserting and updating 
+GET_ilm/policy/policy_id  for getting policies 
+DELETE_ilm/policy/policy_id  for deleting policies
+
+
+
+POST /_sql?format=txt
+{
+   "query": "SELECT * FROM vishwa where name like 'Tiger'"
+}
+
+
+

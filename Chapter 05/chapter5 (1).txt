@@ -1,0 +1,26 @@
+KEYS vishwa* 
+
+SETEX name 90 vishwa
+
+
+HMSET student name "vishwa nara"
+HMSET student age  50
+
+
+
+MULTI
+ SET user vishwa
+ INCR users
+EXEC
+
+
+
+
+WATCH numberofusers
+count = GET numberofusers
+count = count + 1
+MULTI
+SET numberofusers $count
+EXEC
+
+

@@ -1,0 +1,81 @@
+create table employee
+(
+emp_id int,
+emp_name text,
+age int,
+salary double,
+PRIMARY KEY ((emp_id,emp_name))
+);
+
+create table employee
+(
+emp_id int,
+emp_name text,
+age int,
+salary double,
+PRIMARY KEY ((emp_id,emp_name))
+)
+
+CREATE TABLE sample(
+   col1 timestamp,
+   col2 text,
+   col3 text,
+   col4 text,
+   PRIMARY KEY (col1, col2)
+   )
+
+
+CREATE KEYSPACE IF NOT EXISTS bpb_keyspace
+ WITH REPLICATION = { 'class' : 'SimpleStrategy', 
+ 'replication_factor' : 1 };
+
+
+
+CREATE KEYSPACE bpb_multi_node WITH replication =
+ {'class' : 'NetworkTopologyStrategy',
+ 'datacenter1' : 5,'datacenter2' : 4};
+
+
+drop keyspacebpb_keyspace;
+
+
+CREATE TABLE emp(
+emp_id int PRIMARY KEY,
+emp_name text,
+emp_city text
+   );
+
+
+
+CREATE TABLE emp(
+emp_idint ,
+emp_name text,
+emp_city text,
+    PRIMARY KEY (emp_id)
+   );
+
+
+CREATE TABLE emp(
+emp_idint ,
+emp_name text,
+emp_city text,
+    PRIMARY KEY ((emp_id),emp_city)
+   );
+
+
+   ALTER TABLE student DROP email;
+   
+   
+   insert into emp JSON '{"emp_id": "123", "name": "John","salary": 5000}';
+   
+   
+   Select jsonemp_id,emp_name,salary from emp;
+   
+   select toJson(emp_name) from emp;
+   
+   SELECT emp_id, token(emp_id) FROM emp;
+   
+   Select emp_id from emp limit 2;
+   
+   Select emp_id, emp_name from emp were emp_id in (2,3,4)
+
